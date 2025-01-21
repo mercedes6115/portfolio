@@ -28,7 +28,7 @@ Sample Developer Portfolio for Job Seekers and Career Changers
 
 ## 아키텍처
 
-<img src="./image/src/image/그림1.png" width="1200">
+<img src="./image/src/image/그림2.png" width="1200">
 
 ## 개발 스택
 > JDK 1.8, SpringBoot 3.x <br> 
