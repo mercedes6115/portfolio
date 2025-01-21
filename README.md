@@ -26,7 +26,7 @@ Sample Developer Portfolio for Job Seekers and Career Changers
 >대외로 나가는 모든 메시지를 통합 관리 가능<br>
 >
 
-## 아키텍처
+## 아키텍처 및 서비스 흐름
 
 <img src="./image/src/image/그림2.png" width="1200">
 
