@@ -18,7 +18,7 @@
 <img src="./image/src/image/그림2.png" width="1200">
 
 ## 개발 스택
-> J백엔드: Java, Spring Boot, Spring Data JPA, QueryDSL <br> 
+> 백엔드: Java, Spring Boot, Spring Data JPA, QueryDSL <br> 
 > 프론트엔드: Vue.js <br>
 > 데이터베이스: MySQL, Redis <br>
 > 기타: ActiveMQ, JWT <br>
