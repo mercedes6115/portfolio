@@ -1,29 +1,16 @@
-# Portfolio Sample
-Sample Developer Portfolio for Job Seekers and Career Changers
-
-
-# 인프런 강의
-
-<img src="https://github.com/villainscode/DesignPattern/blob/main/image/inflean_code.jpeg" width="1000">
-
-- [시니어면접관이 알려주는 개발자 취업과 이직, 한방에 해결하기 이론편](https://www.inflearn.com/course/%EC%8B%9C%EB%8B%88%EC%96%B4-%EB%A9%B4%EC%A0%91%EA%B4%80-%EC%95%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%B7%A8%EC%97%85-%EC%9D%B4%EC%A7%81-%EC%9D%B4%EB%A1%A0)
-- [시니어면접관이 알려주는 개발자 취업과 이직, 한방에 해결하기 실전편](https://www.inflearn.com/course/%EC%8B%9C%EB%8B%88%EC%96%B4-%EB%A9%B4%EC%A0%91%EA%B4%80-%EC%95%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%B7%A8%EC%97%85-%EC%9D%B4%EC%A7%81-%EC%8B%A4%EC%A0%84)
-
-
-
 
 ## 프로젝트 목표
-사내 각 서비스들마다 흩어져서 구현하던 메시지 전송 기능을 연동 플랫폼과 전송 미들웨어를 통합하여 제공하고 다양한 포맷을 지원한다. 
 
-- 사내 메시지 발송기를 통합하여 여러 부서에 파편화된 리소스를 공통 플랫폼으로 전환하여 효율화 <br> 
-- 메시지 중요도와 발송량에 따라 기존 장비를 활용하고 고속, 고용량의 경우 고사양 장비 활용 <br>
-- 다양한 포멧의 메시지를 지원하여 대외로 나가는 모든 메시징 통합 <br>
+- 다양한 배달 대행사 서비스를 효율적으로 연동할 수 있는 플랫폼 구축 <br> 
+- 대행사의 추가를 고려한 확장 가능한 시스템 설계 <br>
+- 실시간 배달 상태를 사용자 화면에 제공하여 사용자 경험 개선 <br>
 
 ### 기대효과 
 >
->운영 리소스 50% 감소 및 메시지 발송 증가에 따른 발송 지연 CS 비용 해소<br>
->모든 인입 메시지를 트레킹하고 메시지 유실 관리 기능 제공<br>
->대외로 나가는 모든 메시지를 통합 관리 가능<br>
+>전략 패턴을 활용한 설계로 개발 시간 단축 및 확장성 증대<br>
+>ActiveMQ를 활용한 실시간 상태 변경으로 사용자 만족도 향상<br>
+>중복 로그인 방지 및 JWT를 이용한 사용자 인증 강화를 통해 보안성 및 서비스 신뢰도 제고<br>
+>시스템 유지보수성과 성능 개선을 통해 서비스 안정성 강화
 >
 
 ## 아키텍처 및 서비스 흐름
@@ -31,15 +18,15 @@ Sample Developer Portfolio for Job Seekers and Career Changers
 <img src="./image/src/image/그림2.png" width="1200">
 
 ## 개발 스택
-> JDK 1.8, SpringBoot 3.x <br> 
-> Elasticsearch 8.x,  Kafka 3.x, Redis 7.x, RabbitMQ 3.10.x, MongoDB 6.x 
-
+> J백엔드: Java, Spring Boot, Spring Data JPA, QueryDSL <br> 
+> 프론트엔드: Vue.js <br>
+> 데이터베이스: MySQL, Redis <br>
+> 기타: ActiveMQ, JWT <br>
 
 ## 핵심 기능 
 >
->전체 발송 메시징 적재 후 retryable 처리, 실패시 메뉴얼 발송 가능 <br>
-> 메시지 가중치 스펙 도입, 메시지 타입 및 조건에 따라 처리 성능별 Producer 분배 <br>
-> Redis Pub/Sub 을 이용한 웹 알림 View Plugin 모듈 제공 (재개발 필요없이 CSS만 수정하여 커스텀) <br>
-> 메시지 전송과 서비스 비즈니스의 격리, 발송 규격 및 메시지 팀플릿 등록 후 인하우스 유저가 권한 획득하여 발송 <br>
-> 발송 히스토리는 관리자 화면에서 실시간으로 확인
-> 각 레이어별로 이벤트 수집, 정제, 메시지 가공, 발송, 결과 수집 기능 구현
+> N개의 배달 대행사 서비스 연동 및 확장성을 고려한 전략 패턴 설계 <br>
+> 실시간 배달 상태 변경을 화면에 노출하기 위한 API 설계 및 개발 <br>
+> JWT를 이용한 사용자 인증 및 Redis를 활용한 중복 로그인 방지 기능 <br>
+> 웹 서버 프록시 설정 변경으로 요청 최적화 <br>
+> Wide/Narrow 타입 이미지의 Center Crop 및 비율 조정 기능 개발
