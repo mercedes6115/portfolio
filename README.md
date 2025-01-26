@@ -15,7 +15,7 @@
 
 ## 아키텍처 및 서비스 흐름
 
-<img src="src/src/image/그림2.png" width="1200">
+<img src="src/image/그림2.png" width="1200">
 
 ## 개발 스택
 > 백엔드: Java, Spring Boot, Spring Data JPA, QueryDSL <br> 
