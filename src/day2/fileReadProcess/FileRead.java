@@ -113,5 +113,5 @@ public class FileRead {
     //
 
     // 자세한 설명은 아래 pdf 링크 참조
-    // file:///C:/Users/qoqhs/Downloads/%ED%8C%8C%EC%9D%BC%ED%9D%90%EB%A6%84%EB%8F%84.drawio%20(2).pdf
+    // https://github.com/mercedes6115/portfolio/blob/main/src/day2/fileReadProcess/%ED%8C%8C%EC%9D%BC%ED%9D%90%EB%A6%84%EB%8F%84.drawio.pdf
 }
