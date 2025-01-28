@@ -1,4 +1,4 @@
-package day2;
+package day2.fileReadProcess;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -46,6 +46,8 @@ public class FileRead {
     // open0()에서 C/C++ 구현부가 실행 → OS 시스템 콜(open(), CreateFile(), etc.)을 통해 실제 파일 핸들/디스크립터를 획득
     // 성공 시 “디스크립터(fd)”나 “핸들(handle)”을 자바가 얻음 → FileDescriptor 객체에 저장
     // 이후 FileReader 에게 스트림을 넘겨주고, FileReader 도 최종 초기화 완료
+    // fileOpen이 자바 쪽에 있는 상자(필드)에 네이티브 핸들을 집어넣는다고 생각하면 된다
+    // 그리고 자바 코드는 그 상자(필드)를 열어 핸들을 확인하거나, 다른 함수에 넘겨서 실제 I/O 작업을 진행한다
 
     // 5. BufferedReader br = new BufferedReader(new FileReader(filePath))
     // BufferedReader 는 “버퍼링” 기능을 제공해, 디스크로부터 데이터를 조금씩 여러 번 읽는 대신, 상대적으로 큰 덩어리로 한번에 읽어 들이는 방식을 쓴다
@@ -66,11 +68,13 @@ public class FileRead {
     // JNI 에서 실제 OS에 어떻게 요청을 보내는지
     // 1. 자바 클래스(FileInputStream.java)에 native 선언된 open0(String name) →
     // 2. FileInputStream.c 에 있는 Java_java_io_FileInputStream_open0 JNI 함수가 매핑 →
+    // 이 과정은 언제?
+    // JVM 구동 시(또는 특정 시점에), 이 라이브러리들이 자동으로 로드되고, registerNatives 등으로 자바 메서드 <-> C 함수 매핑이 설정됨
     // 3. 내부에서 fileOpen(...) 같은 공용 함수 호출 →
     // 4. io_util_md.c 등의 소스에서 OS API(open(), CreateFile())를 최종 호출 →
     // 5. 성공 시 OS가 돌려준 파일 디스크립터/핸들을 FileDescriptor 객체에 저장
     // 6. 즉, open0() 자체는 비교적 얇은 래퍼(Wrapper) 역할을 하며, 실질적인 OS 파일 열기 로직은 플랫폼별 소스(Windows, Linux, macOS 등)에서 담당하고 있음
-
+    // 자바가 “이름 규칙”과 “동적 라이브러리 로딩”을 통해 C 함수를 찾아 호출하는 과정
 
     // 실제 FileInputStream.c에 있는 JNI의 open0
     // JNIEXPORT void JNICALL
@@ -83,7 +87,7 @@ public class FileRead {
     // 파일이 텍스트만 있는것이 아닌데 그럼 다른 경우는?
     // 흐름 자체는 같지만 자바에서 그 파일을 어떻게 해석하고 다루는가에 차이는 있음
     // 텍스트 vs 바이너리
-    //
+
 
     // 정리
     // 1. FileReader 생성 시:
@@ -107,4 +111,7 @@ public class FileRead {
     // 디스크에 파일이 없거나 권한이 없으면 OS가 거부 응답.
     // IOException 발생.
     //
+
+    // 자세한 설명은 아래 pdf 링크 참조
+    // file:///C:/Users/qoqhs/Downloads/%ED%8C%8C%EC%9D%BC%ED%9D%90%EB%A6%84%EB%8F%84.drawio%20(2).pdf
 }

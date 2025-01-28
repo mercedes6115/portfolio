@@ -1,11 +1,14 @@
 package day2;
 
+import java.math.BigDecimal;
+
 public class Float {
 
 
     public static void main(String[] args){
 
         System.out.println(0.1 + 0.2);
+        BigDecimal decimal= BigDecimal.valueOf(0.1);
         // 결과는 0.30000000000000004
 
         // 이유는 “2진 부동소수점 표현 방식의 정밀도 한계” 때문이다
