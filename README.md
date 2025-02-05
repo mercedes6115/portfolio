@@ -1,11 +1,4 @@
-header-includes:
-  - \usepackage{fontspec}
-  - \setmainfont{Noto Sans CJK KR}
-  - \setsansfont{Noto Sans CJK KR}
-  - \setmonofont{Noto Sans Mono CJK KR}
-  - \usepackage{xunicode}
-  - \usepackage{xltxtra}
-  - \usepackage{kotex} 
+
 ## 프로젝트 목표
 
 - 다양한 배달 대행사 서비스를 효율적으로 연동할 수 있는 플랫폼 구축 <br> 
